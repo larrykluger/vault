@@ -1,11 +1,21 @@
-# Vault.js [![Build Status](https://travis-ci.org/toddmotto/vault.svg)](https://travis-ci.org/toddmotto/vault)
+# SVault.js
 
-Vault is a 0.4KB standalone `localStorage` API with automatic JSON support. The HTML5 spec permits localStorage to only accept a String as value of an Object property, Vault makes it possible to store entire JavaScript Objects. Vault uses a faster Object lookup than the suggested API methods.
+This repo is a fork of [toddmotto/vault](https://github.com/toddmotto/vault)
 
-IE8 supports localStorage, therefore Vault can be used with IE8+, but note browser storage limitations in IE8 compared to modern browsers.
+It's only change is to support sVault, which stores in Window.sessionStorage, instead of the original localStorage.
+
+Why: using session storage enables multiple instances of your browser app to exist in multiple browser tabs.
+Using localStorage means that the multiple tabs share the same data set. 
+
+Below is from the orginal Readme, but `vault` has been updated to `sVault` and other changes to reflect 
+this repo's use of sessionStorage.
+
+Vault is a 0.4KB standalone `sessionStorage` API with automatic JSON support. The HTML5 spec permits sessionStorage to only accept a String as value of an Object property, SVault makes it possible to store entire JavaScript Objects. SVault uses a faster Object lookup than the suggested API methods.
+
+IE8 supports sessionStorage, therefore SVault can be used with IE8+, but note browser storage limitations in IE8 compared to modern browsers.
 
 ### Storing Objects
-Vault allows you to automatically store JavaScript Objects and not just strings (default localStorage behaviour), allowing you to do the following:
+SVault allows you to automatically store JavaScript Objects and not just strings (default localStorage behaviour), allowing you to do the following:
 
 ```javascript
 var blink182 = {
@@ -13,7 +23,7 @@ var blink182 = {
   formed: 'California',
   members: ['Tom Delonge', 'Mark Hoppus', 'Travis Barker']
 };
-vault.set('someBand', blink182);
+svault.set('someBand', blink182);
 ```
 
 ### set API
