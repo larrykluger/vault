@@ -1,10 +1,10 @@
 {
-  "name": "vault.js",
+  "name": "svault.js",
   "version": "1.3.0",
-  "description": "LocalStorage API with automatic JSON support",
+  "description": "SessionStorage API with automatic JSON support",
   "author": "@toddmotto",
   "license": "MIT",
-  "homepage": "https://github.com/toddmotto/vault",
+  "homepage": "https://github.com/larrykluger/vault",
   "devDependencies": {
     "gulp": "~3.7.0",
     "gulp-uglify": "~0.3.0",

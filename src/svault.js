@@ -4,13 +4,13 @@
   } else if (typeof exports === 'object') {
     module.exports = factory;
   } else {
-    root.vault = factory();
+    root.svault = factory();
   }
 })(this, function () {
 
   'use strict';
 
-  var ls = window.localStorage;
+  var ls = window.sessionStorage;
 
   return {
     set: function (key, value) {

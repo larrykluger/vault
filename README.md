@@ -2,15 +2,15 @@
 
 This repo is a fork of [toddmotto/vault](https://github.com/toddmotto/vault)
 
-It's only change is to support sVault, which stores in Window.sessionStorage, instead of the original localStorage.
+Its only change is to export svault (instead of vault). svault stores in Window.sessionStorage, instead of the original localStorage.
 
 Why: using session storage enables multiple instances of your browser app to exist in multiple browser tabs.
-Using localStorage means that the multiple tabs share the same data set. 
+Using localStorage means that the multiple tabs share the same data set.
 
-Below is from the orginal Readme, but `vault` has been updated to `sVault` and other changes to reflect 
+Below is from the orginal Readme, but `svault` has been updated to `sSVault` and other changes to reflect
 this repo's use of sessionStorage.
 
-Vault is a 0.4KB standalone `sessionStorage` API with automatic JSON support. The HTML5 spec permits sessionStorage to only accept a String as value of an Object property, SVault makes it possible to store entire JavaScript Objects. SVault uses a faster Object lookup than the suggested API methods.
+SVault is a 0.4KB standalone `sessionStorage` API with automatic JSON support. The HTML5 spec permits sessionStorage to only accept a String as value of an Object property, SVault makes it possible to store entire JavaScript Objects. SVault uses a faster Object lookup than the suggested API methods.
 
 IE8 supports sessionStorage, therefore SVault can be used with IE8+, but note browser storage limitations in IE8 compared to modern browsers.
 
@@ -30,21 +30,21 @@ svault.set('someBand', blink182);
 To set data into localStorage, you must use the `set()` API. There are two arguments, `key` for the Object's key, and `value` for the key value:
 
 ```javascript
-vault.set(key, value);
+svault.set(key, value);
 ```
 
 Example:
 
 ```javascript
 // localStorage, object key = name, value = 'Tom Delonge'
-vault.set('name', 'Tom Delonge');
+svault.set('name', 'Tom Delonge');
 ```
 
 ### get API
 Obtaining set data is easy with the `get()` API, simply reference a previously set key with `key`:
 
 ```javascript
-vault.get(key);
+svault.get(key);
 ```
 
 Example:
@@ -52,46 +52,46 @@ Example:
 ```javascript
 // getting 'name' from localStorage
 // returns 'Tom Delonge'
-vault.get('name');
+svault.get('name');
 ```
 
 ### remove API
 Removing set data is easy with the `remove()` API, again reference a previously set key with `key`:
 
 ```javascript
-vault.remove(key);
+svault.remove(key);
 ```
 
 Example:
 
 ```javascript
 // removes 'name' from localStorage
-vault.remove('name');
+svault.remove('name');
 ```
 
 ### empty API
-It's a good idea to empty the user's localStorage when possible to avoid overloading it, there are limits which differ per browser. Specifically modern browsers allow around `5MB` but IE versions are limited. IE8 also supports localStorage and Vault.
+It's a good idea to empty the user's localStorage when possible to avoid overloading it, there are limits which differ per browser. Specifically modern browsers allow around `5MB` but IE versions are limited. IE8 also supports localStorage and SVault.
 
 ```javascript
-vault.empty();
+svault.empty();
 ```
 
 ## Installing with Bower
-To install Vault into your project using Bower, use the GitHub repository hook:
+To install SVault into your project using Bower, use the GitHub repository hook:
 
 ```
-bower install https://github.com/toddmotto/vault.git
+bower install https://github.com/toddmotto/svault.git
 ```
 
 ## Manual installation
 Drop your files into your required folders, make sure you're using the files from the `dist` folder, which is the compiled production-ready code. Ensure you place the script before the closing `</body>` tag so the DOM tree is populated when the script runs.
-	
+
 ```html
 <body>
 	<!-- html content above -->
-	<script src="dist/vault.js"></script>
+	<script src="dist/svault.js"></script>
   <script>
-  vault.set('name', 'Tom Delonge');
+  svault.set('name', 'Tom Delonge');
   </script>
 </body>
 ```
@@ -100,7 +100,6 @@ Drop your files into your required folders, make sure you're using the files fro
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using Gulp.
 
 ## Release history
-
 - 1.3.0
   - Fix bug with setting/getting falsy values
   - Slight restructure to internal API
